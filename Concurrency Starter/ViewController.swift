@@ -108,7 +108,7 @@ class ViewController: UIViewController
         }
         
     }
-
+    
     @IBAction func startAsyncImageDownload(_ sender: Any)
     {
         // Download enough images to fill in the UIImageViews on my
@@ -145,6 +145,47 @@ class ViewController: UIViewController
         } // end for i in imageViewTags
         
     } // end startAsyncImageDownload
+    
+    @IBAction func startSyncImageDownload(_ sender: Any)
+    {
+        // Define a custom SERIAL background queue. I specify serial by not specifying
+        // anything. Serial is the default.
+        let serialQueue: DispatchQueue = DispatchQueue(label: "com.iosbrain.SerialImageQueue")
+        
+        // Download enough images to fill in the UIImageViews on my
+        // UIViewController; I've set each UIImageView's "tag" property
+        // so I can access each UIImageView programmatically
+        for i in imageViewTags
+        {
+            
+            // Start each image download task asynchronously by submitting
+            // it to the CUSTOM SERIAL background queue; this task is submitted
+            // and serialQueue.async returns immediately.
+            serialQueue.async
+            {
+                
+                // I'm PURPOSEFULLY downloading the image using a synchronous call
+                // (NSData), but I'm doing so in the BACKGROUND.
+                let imageView : UIImageView = self.view.viewWithTag(i) as! UIImageView
+                let imageURL = URL(string: self.imageURLs[i-10])
+                let imageData = NSData(contentsOf: imageURL!)
+                print("image tag: \(i)")
+                
+                // Once the image finishes downloading, I jump onto the MAIN
+                // THREAD TO UPDATE THE UI.
+                DispatchQueue.main.async
+                {
+                        imageView.image = UIImage(data: imageData as! Data)
+                        self.imageCounter += 1
+                        self.progressView.progress = Float(self.imageCounter) / Float(self.imageURLs.count)
+                        self.view.setNeedsDisplay()
+                } // end DispatchQueue.main.async
+                
+            } // end serialQueue.async
+            
+        } // end for i in imageViewTags
+        
+    } // end func startSyncImageDownload
     
 } // end class ViewController
 

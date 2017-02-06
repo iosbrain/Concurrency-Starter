@@ -95,25 +95,6 @@
                                     <constraint firstAttribute="width" secondItem="qjS-nD-E8m" secondAttribute="height" multiplier="1:1" id="tBw-v8-bGf"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q5I-0N-VGM">
-                                <rect key="frame" x="410" y="28" width="204" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBF-fn-4sp">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="30"/>
-                                        <state key="normal" title="Start Download"/>
-                                        <connections>
-                                            <action selector="startAsyncImageDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1IX-ha-292"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Iv-n9-QQY">
-                                        <rect key="frame" x="114" y="0.0" width="90" height="30"/>
-                                        <state key="normal" title="Clear Images"/>
-                                        <connections>
-                                            <action selector="clearImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGw-QO-Wqf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8k-sd-7rf">
                                 <rect key="frame" x="20" y="42" width="320" height="320"/>
                                 <constraints>
@@ -155,6 +136,32 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q5I-0N-VGM">
+                                <rect key="frame" x="383" y="28" width="258" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBF-fn-4sp">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                        <state key="normal" title="Start Async"/>
+                                        <connections>
+                                            <action selector="startAsyncImageDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1IX-ha-292"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXi-A3-Xhe">
+                                        <rect key="frame" x="88" y="0.0" width="72" height="30"/>
+                                        <state key="normal" title="Start Sync"/>
+                                        <connections>
+                                            <action selector="startSyncImageDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ef-d8-cJM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Iv-n9-QQY">
+                                        <rect key="frame" x="168" y="0.0" width="90" height="30"/>
+                                        <state key="normal" title="Clear Images"/>
+                                        <connections>
+                                            <action selector="clearImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGw-QO-Wqf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -186,14 +193,14 @@
                             <constraint firstItem="6aW-4g-n0Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fh1-v7-6Wu"/>
                             <constraint firstItem="qjS-nD-E8m" firstAttribute="top" secondItem="0lG-2I-36T" secondAttribute="bottom" constant="8" id="gUT-iA-SOX"/>
                             <constraint firstItem="Vyy-5e-GHa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="mww-KU-886"/>
-                            <constraint firstItem="q5I-0N-VGM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="omf-Wz-ibA"/>
+                            <constraint firstItem="q5I-0N-VGM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="pVy-Gn-5Wt"/>
                             <constraint firstItem="0lG-2I-36T" firstAttribute="top" secondItem="720-o8-ltD" secondAttribute="bottom" constant="8" id="qXn-fe-gKD"/>
-                            <constraint firstItem="q5I-0N-VGM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r8l-G6-krl"/>
                             <constraint firstItem="6aW-4g-n0Z" firstAttribute="top" secondItem="7ah-gt-k2q" secondAttribute="bottom" constant="8" id="tqB-X6-6iW"/>
                             <constraint firstItem="Vyy-5e-GHa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wD5-PI-wPe"/>
                             <constraint firstItem="CW9-Da-QmR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="x03-AL-Qso"/>
                             <constraint firstItem="CW9-Da-QmR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="350" id="yL2-9s-3Tg"/>
                             <constraint firstItem="dXG-T9-ix1" firstAttribute="top" secondItem="YBF-fn-4sp" secondAttribute="bottom" constant="102" id="ypz-9R-OT1"/>
+                            <constraint firstItem="q5I-0N-VGM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zd5-eG-PDv"/>
                         </constraints>
                     </view>
                     <connections>
